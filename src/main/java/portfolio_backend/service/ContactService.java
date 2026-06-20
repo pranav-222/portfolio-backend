@@ -7,24 +7,18 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import portfolio_backend.entity.ContactMessage;
-import portfolio_backend.repository.ContactRepository;
 
 import java.time.LocalDateTime;
 
 @Service
 public class ContactService {
 
-    @Autowired
-    private ContactRepository repository;
+
 
     @Autowired
     private JavaMailSender mailSender;
 
     public void saveMessage(ContactMessage message) {
-
-        message.setCreatedAt(LocalDateTime.now());
-
-        repository.save(message);
 
         sendEmail(message);
     }
