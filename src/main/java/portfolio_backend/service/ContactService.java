@@ -41,43 +41,7 @@ public class ContactService {
                             + "\nSubject: " + message.getSubject()
                             + "\n\nMessage:\n"
                             + message.getMessage());
-            @Async
-            public void sendEmail(ContactMessage message) {
-
-                try {
-
-                    System.out.println("Attempting to send email...");
-
-                    SimpleMailMessage mail = new SimpleMailMessage();
-
-                    mail.setTo("prnv222@gmail.com");
-
-                    mail.setSubject(
-                            "Portfolio Contact - "
-                                    + message.getSubject());
-
-                    mail.setText(
-                            "Name: " + message.getName()
-                                    + "\nEmail: " + message.getEmail()
-                                    + "\nSubject: " + message.getSubject()
-                                    + "\n\nMessage:\n"
-                                    + message.getMessage());
-
-                    // ADD THESE 3 LINES HERE
-                    System.out.println("TO = prnv222@gmail.com");
-                    System.out.println("SUBJECT = " + mail.getSubject());
-                    System.out.println("MAIL SENDER STARTING");
-
-                    mailSender.send(mail);
-
-                    System.out.println("EMAIL SENT SUCCESSFULLY");
-
-                } catch (Exception e) {
-
-                    System.out.println("MAIL FAILED");
-                    e.printStackTrace();
-                }
-            }
+            
             mailSender.send(mail);
 
             System.out.println("EMAIL SENT SUCCESSFULLY");
