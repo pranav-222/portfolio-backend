@@ -19,9 +19,10 @@ public class ContactController {
     public ResponseEntity<String> send(
             @RequestBody ContactMessage message) {
 
+        System.out.println("CONTACT REQUEST RECEIVED FROM: " + message.getEmail());
+
         service.saveMessage(message);
 
-        return ResponseEntity.ok(
-                "Message Sent Successfully");
+        return ResponseEntity.ok("Message Sent Successfully");
     }
 }

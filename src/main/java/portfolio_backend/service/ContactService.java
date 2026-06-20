@@ -11,13 +11,12 @@ import portfolio_backend.entity.ContactMessage;
 @Service
 public class ContactService {
 
-
-
     @Autowired
     private JavaMailSender mailSender;
 
     public void saveMessage(ContactMessage message) {
 
+        System.out.println("CONTACT REQUEST RECEIVED");
         sendEmail(message);
     }
 
@@ -39,6 +38,7 @@ public class ContactService {
             mail.setText(
                     "Name: " + message.getName()
                             + "\nEmail: " + message.getEmail()
+                            + "\nSubject: " + message.getSubject()
                             + "\n\nMessage:\n"
                             + message.getMessage());
 
