@@ -26,8 +26,9 @@ public class ContactService {
 
         try {
 
-            SimpleMailMessage mail =
-                    new SimpleMailMessage();
+            System.out.println("Attempting to send email...");
+
+            SimpleMailMessage mail = new SimpleMailMessage();
 
             mail.setTo("prnv222@gmail.com");
 
@@ -43,10 +44,12 @@ public class ContactService {
 
             mailSender.send(mail);
 
+            System.out.println("EMAIL SENT SUCCESSFULLY");
+
         } catch (Exception e) {
 
-            System.out.println("Mail failed: "
-                    + e.getMessage());
+            System.out.println("MAIL FAILED");
+            e.printStackTrace();
         }
     }
 }
