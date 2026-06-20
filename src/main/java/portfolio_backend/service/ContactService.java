@@ -3,7 +3,6 @@ package portfolio_backend.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import portfolio_backend.entity.ContactMessage;
@@ -17,10 +16,10 @@ public class ContactService {
     public void saveMessage(ContactMessage message) {
 
         System.out.println("CONTACT REQUEST RECEIVED");
+
         sendEmail(message);
     }
 
-    @Async
     public void sendEmail(ContactMessage message) {
 
         try {
@@ -41,7 +40,11 @@ public class ContactService {
                             + "\nSubject: " + message.getSubject()
                             + "\n\nMessage:\n"
                             + message.getMessage());
-            
+
+            System.out.println("TO = prnv222@gmail.com");
+            System.out.println("SUBJECT = " + mail.getSubject());
+            System.out.println("MAIL SENDER STARTING");
+
             mailSender.send(mail);
 
             System.out.println("EMAIL SENT SUCCESSFULLY");
