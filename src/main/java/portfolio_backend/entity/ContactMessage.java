@@ -1,15 +1,6 @@
 package portfolio_backend.entity;
 
-import jakarta.persistence.*;
-import java.time.LocalDateTime;
-
-@Entity
-@Table(name = "contact_messages")
 public class ContactMessage {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     private String name;
 
@@ -17,16 +8,9 @@ public class ContactMessage {
 
     private String subject;
 
-    @Column(length = 5000)
     private String message;
 
-    private LocalDateTime createdAt;
-
     public ContactMessage() {
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public String getName() {
@@ -59,13 +43,5 @@ public class ContactMessage {
 
     public void setMessage(String message) {
         this.message = message;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
     }
 }
