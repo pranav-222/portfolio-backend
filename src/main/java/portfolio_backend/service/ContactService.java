@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 
 import portfolio_backend.entity.ContactMessage;
 
-import java.time.LocalDateTime;
-
 @Service
 public class ContactService {
 
